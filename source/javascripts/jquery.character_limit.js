@@ -4,7 +4,6 @@
     limit: 0,
     $counter: null,
     counter_regex: /-?\d+/,
-    prevent_exceeding: false,
     warning_threshold: 0,
     classes: {
       exceeded: "exceeded_limit",
@@ -19,18 +18,15 @@
     getThreshold: function() {
       return this.$el.attr("data-threshold") || 0;
     },
+    counterFormat: function(count) {
+      return this.$counter.text().replace(this.counter_regex, count);
+    },
     checkLimit: function(e) {
       var count = this.limit - this.$el.val().length,
           limit_exceeded = this.$el.val().length > this.limit;
-      if (this.prevent_exceeding && limit_exceeded) {
-        this.concatValue();
-      }
-      this.$counter.text(this.$counter.text().replace(this.counter_regex, count))
+      this.$counter.text(this.counterFormat(count))
         .toggleClass(this.classes.exceeded, limit_exceeded)
         .toggleClass(this.classes.warning, this.limit - this.$el.val().length < this.warning_threshold && !!count);
-    },
-    concatValue: function() {
-      this.$el.val(this.$el.val().substring(0, this.limit));
     },
     setOptions: function() {
       if (!this.$counter) { this.$counter = this.getCounter(); }

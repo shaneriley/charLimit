@@ -5,21 +5,27 @@ body
   color: #444444
 
 form
+  h1
+    padding: 0 0 10px 0
+    font-size: 16px
   dt
     overflow: hidden
     padding: 0 0 10px 0
     label
       float: left
+      font-size: 13px
     mark
       float: right
       font-size: 12px
       color: #999999
       &.warning_limit
-        color: #e5ed00
+        color: #a0a000
       &.exceeded_limit
         color: #b00b00
   dd
     padding: 0 0 20px 0
+  input[type="text"]
+    +input
   textarea
     +input
     height: auto
@@ -29,12 +35,12 @@ form
   padding: 30px
   margin: 0 auto
   background: #ececec
-  h1
-    padding: 0 0 25px 0
-    font-size: 28px
-  h2
-    padding: 0 0 10px 0
-    font-size: 18px
-  p
-    padding: 0 0 15px 0
-    line-height: 150%
+h1
+  padding: 0 0 25px 0
+  font-size: 28px
+h2
+  padding: 0 0 10px 0
+  font-size: 18px
+p
+  padding: 0 0 15px 0
+  line-height: 150%

@@ -14,4 +14,30 @@
         %label Message
         %mark 30 characters left
       %dd
-        %textarea#limit(rows="5" cols="60")
+        %input#limit(type="text")
+  %fieldset
+    %h1 Limit and threshold passed
+    %p Note that using a maxlength attribute on your inputs will enforce the limit restriction.
+    %dl
+      %dt
+        %label Message
+        %mark 30 characters left
+      %dd
+        %input#enforced(type="text" maxlength="30")
+  %fieldset
+    %h1 Custom getCounter and counterFormat methods
+    %p getCounter looks for a mark element within the closest dl to the element you've called it on. You can override this by passing a method that returns the jQuery object you wish to update. The counterFormat method receives a count number as the argument, and expects a return of the string to be output in the $counter object.
+    %dl
+      %dt
+        %label Message
+      %dd
+        %input#get_counter(type="text" maxlength="30" data-limit="30")
+        %p 30 characters available, 30 remaining.
+  %p The class names applied for warning and exceeded can also be overridden by passing in a classes object:
+  %code
+    %pre
+      :plain
+        classes: {
+        exceeded: "exceeded",
+        warning: "warn"
+  }
