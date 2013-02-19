@@ -36,6 +36,7 @@
     init: function() {
       this.$el.on("change keyup", $.proxy(this.checkLimit, this));
       this.setOptions();
+      this.checkLimit();
     }
   };
 
@@ -43,9 +44,12 @@
     createPlugin: function(plugin) {
       $.fn[plugin.name] = function(opts) {
         var $els = this,
+            args = arguments,
             method = $.isPlainObject(opts) || !opts ? "" : opts;
         if (method && plugin[method]) {
-          plugin[method].apply($els, Array.prototype.slice.call(arguments, 1));
+          $els.each(function(i) {
+            plugin[method].apply($els.eq(i).data(plugin.name), Array.prototype.slice.call(arguments, 1));
+          });
         }
         else if (!method) {
           $els.each(function(i) {
