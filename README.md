@@ -72,7 +72,8 @@ $("textarea").data("charLimit").checkLimit();
 Using this data object, you can also change any of the plugin's options per-element by modifying the properties and methods of the object stored in data.
 
 ```javascript
-// Change character limit to 300. Don't forget to call the checkLimit method to display the new characters remaining.
+// Change character limit to 300. Don't forget to call the checkLimit method to display the new
+// characters remaining.
 $("textarea").data("charLimit").limit = 300;
 $("textarea").charLimit("checkLimit");
 ```
