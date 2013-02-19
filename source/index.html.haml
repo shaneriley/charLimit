@@ -1,0 +1,17 @@
+%form(action="" method="post")
+  %fieldset
+    %h1 Defaults
+    %dl
+      %dt
+        %label Message
+        %mark 140 characters left
+      %dd
+        %textarea#default(rows="5" cols="60" data-limit="140" data-threshold="20")
+  %fieldset
+    %h1 Limit passed in, no threshold
+    %dl
+      %dt
+        %label Message
+        %mark 30 characters left
+      %dd
+        %textarea#limit(rows="5" cols="60")

@@ -1,0 +1,13 @@
+!!! 5
+%html(lang="en-US")
+  %head
+    %meta(charset="utf-8")
+    %title Character Limit - a jQuery Plugin
+    = stylesheet_link_tag "forms"
+    = javascript_include_tag "jquery.min", "jquery.character_limit", "demos"
+  %body
+    .column
+      %h1 $.charLimit Plugin
+      %h2 Purpose:
+      %p Outputs number of characters remaining when typing in an element. Optionally imposes a restriction on number of characters the element can contain.
+      = yield
