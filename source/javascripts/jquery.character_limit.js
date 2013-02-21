@@ -1,4 +1,12 @@
-(function($) {
+/* jQuery character limit plugin
+   Name: charLimit
+   Version: 1.0.1
+   Description: https://github.com/shaneriley/charLimit
+   Usage: http://shaneriley.com/jquery/char_limit
+*/
+(function(factory) {
+  typeof define === "function" && define.amd ? define(["jquery"], factory) : factory(jQuery);
+})(function($) {
   var charLimit = {
     name: "charLimit",
     limit: 0,
@@ -69,4 +77,4 @@
   };
 
   internals.createPlugin(charLimit);
-})(jQuery);
+});
